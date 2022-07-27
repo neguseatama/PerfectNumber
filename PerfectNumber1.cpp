@@ -1,7 +1,7 @@
 /*
  Perfect number in C++
  C++による完全数の判定と個数を求めるプログラム
- (ii). 入力を2つの整数(N,Mとする)にし、N以上M以下の範囲で考える場合
+ (i). 入力を1つの整数(Nとする)にし、1以上N以下の範囲で考える場合
  https://github.com/neguseatama
 */
 #include<bits/stdc++.h>
@@ -46,18 +46,19 @@ ll σ(ll n){
     return ans;
 }
 int main(void){
-    ll n,m,cnt=0;
-    cin>>n>>m;
-    for(ll i=n;i<=m;i++){
+    ll n,cnt=0;
+    cin>>n;
+    for(ll i=1;i<=n;i++){
         ll num=σ(i);
         if(num==i*2){
             cnt++;
         }
     }
-    printf("%lld以上%lld以下の整数には、完全数が%lld個含まれています.\n",n,m,cnt);
-    for(ll i=n;i<=m;i++){
+    printf("1以上%lld以下の整数には、完全数が%lld個含まれています.\n",n,cnt);
+    for(ll i=1;i<=n;i++){
         ll num=σ(i);
         if(num==i*2){
+            cnt++;
             printf("%lld: 完全数です.\n",i);
         }else{
             printf("%lld: 完全数ではありません.\n",i);
